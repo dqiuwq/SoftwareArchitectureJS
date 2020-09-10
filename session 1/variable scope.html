@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Variable Scope</title>
+    <script type="text/javascript">
+        globalVar1 = 10; // any variable declared outside a function is global
+        var globalVar2 = 20;
+
+        function foo()
+        {
+            globalVar1 = 1000;
+            globalVar2 = 2000;
+            globalVar3 = 3000; 
+            // when you declare a variable without a var
+            // interpreter will set it as global
+            // using var keyword inside keyword, it changes it to local
+        }
+
+        function poo() 
+        {
+            var localVar = -1000;
+            globalVar2 = -2000;
+            globalVar3 = -3000;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        foo();
+        poo();
+        document.write(globalVar1, "<br/>");        //1000
+        document.write(globalVar2, "<br/>");        //2000
+        document.write(globalVar3, "<br/>");        //3000
+    </script>
+</body>
+</html>

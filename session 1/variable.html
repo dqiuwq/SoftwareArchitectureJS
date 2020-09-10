@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Variable Types</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var myVar = 10;
+        document.write(myVar + 10, "<br/>");        //20
+        document.write(typeof myVar, "<br/>");      //number
+
+        myVar += "ABC";
+        document.write(myVar, "<br/>");             //10ABC
+        document.write(myVar.length, "<br/>");      //5
+        document.write(typeof myVar, "<br/>");      //string
+
+        myVar = myVar.length > 0;
+        document.write(myVar, "<br/>");             //true
+        document.write(typeof myVar, "<br/>");      //boolean
+
+        myVar = 1.234;
+        document.write(myVar, "<br/>");             //floating point
+        document.write(typeof myVar, "<br/>");      //number
+
+        // array in javascript is hetergeneous
+        // where all most other languges are in homogeneous
+        var myArray = [1,2,3,"123"];        
+        document.write(myArray.length, "<br/>");    //4
+        document.write(myArray, "<br/>");           //1,2,3,123
+        document.write(typeof myArray, "<br/>");    //object
+
+        myArray[0] = 123;
+        document.write(myArray, "<br/>");           //123,2,3,123
+        myArray [myArray-1] = "Last";
+        myArray [myArray.length + 5] = "Last";
+        document.write(myArray.length, "<br/>");    //10
+        document.write(myArray, "<br/>");           //123,2,3,123,,,,,,Last
+
+        // object
+        // python=dict,c/c++=map,java=map
+        var myObj = {
+            name: "Alice",
+            age: "20",
+            address: "Singapore"
+        };
+        document.write(myObj, "<br/>");             //[object Object]
+        document.write(myObj.name, "<br/>");        //Alice
+        document.write(myObj.age, "<br/>");         //20
+
+        myObj.phone = "+6582337607";
+        document.write(myObj.phone, "<br/>");       //+6582337607
+        document.write(typeof myObj, "<br/>");      //object
+
+        //ternary conditional
+        document.write(myVar > 5 ? "Yes" : "No");   //No 
+    </script>
+</body>
+</html>

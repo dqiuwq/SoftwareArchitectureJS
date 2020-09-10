@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script type="text/javascript">
+        // javascript object notation
+        var loc = {
+            name: "Murdoch",
+            size: 500
+        };
+        document.write(loc.name, "<br/>");
+        
+        // json --> string
+        var locStr = JSON.stringify(loc);
+        document.write(locStr, "<br/>");
+        document.write(locStr.length, "<br/>");
+
+        // string --> json
+        var locJSON = JSON.parse(locStr);
+        document.write(locJSON.name, "<br/>");
+        document.write(locJSON.size, "<br/>");
+
+        // nested json object
+        var custOrder = {
+            orderRef: "R001",
+            address: "...",
+            items: [ // array of objects, each object has 2 properties
+                {code: "P1", qty: 100},
+                {code: "P2", qty: 500},
+                {code: "P3", qty: 300}
+            ]
+        };
+
+        var orderItem = custOrder.items;
+        for (var i = 0; i<orderItem.length; i++) {
+            document.write(orderItem[i].code + " " 
+                + orderItem[i].qty, "<br/>");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

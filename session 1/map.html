@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+      <title>Map</title>
+      <style>
+        #myMap {height:400px; width:600px}
+      </style>
+      <script type="text/javascript" 
+              src="http://maps.google.com/maps/api/js?sensor=false">
+      </script>
+      <script type="text/javascript">
+        function showMap()
+        {
+          var locLat    = 1.531143;  
+          var locLong   = 103.90448;
+          var latLong   = new google.maps.LatLng(locLat, locLong);
+          var mapOption = {
+            zoom : 12, 
+            center : latLong, 
+            mapTypeId : google.maps.MapTypeId.ROADMAP
+            };
+          var display   = document.getElementById("myMap");
+          var map       = new google.maps.Map(display, mapOption);
+        }
+        // Variation: getCurrentPosition
+        function showCurrent()
+        {
+            navigator.geolocation.getCurrentPosition(showPosition, showMap);
+        }
+        function showPosition(currPos)
+        {
+          var currLat   = currPos.coords.latitude;
+          var currLong  = currPos.coords.longitude;
+          var latLong   = new google.maps.LatLng(currLat, currLong);
+          var mapOption = {
+              zoom : 12, 
+              center : latLong, 
+              mapTypeId : google.maps.MapTypeId.ROADMAP
+              };
+          var display   = document.getElementById("myMap");
+          var map       = new google.maps.Map(display, mapOption);            
+        }
+ 
+      </script>
+    </head>
+    <body>
+      <input type="button" value="Show map" onclick="showMap()" />
+      <input type="button" value="Show current location" onclick="showCurrent()" />
+      <div id="myMap">
+      </div>
+    </body>
+</html>
