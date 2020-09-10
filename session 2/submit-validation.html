@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        // Must return either true or false
+        function validate() {
+            var productCode = document.getElementById("productCode").value;
+            var productQty = document.getElementById("productQty").value;
+            if (productCode.length == 0 || productQty.length == 0) {
+                alert("Product code and quantity cannot be empty");
+                return false
+            } else {
+                return true;
+            }
+        }
+        function checkProduct() {
+            var productCode = document.getElementById("productCode").value;
+            if (productCode.length != 4) {
+                alert("Invalid product code");
+                productCode.value = "";
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <!-- <form id="myform" action="."> -->
+    <form id="myform" action="http://www.it.murdoch.edu.au/cgi-bin/reply1.pl">
+      <input type="text" id="productCode" name="productCode" onchange="checkProduct()" /><br />
+      <input type="text" id="productQty" name="productQty" /><br />
+      <input type="submit" id="send" name="send" value="Send Over" onclick="return validate()" />
+    </form>
+  </body>
+</html>

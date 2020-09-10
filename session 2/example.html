@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>XMLHttpRequest Example</title>
+    <script type="text/javascript">
+        function getAirTempData()
+        {
+            var url = "https://api.data.gov.sg/v1/environment/air-temperature?date=2020-09-07"
+            var xmlRequest = new XMLHttpRequest();
+            xmlRequest.open('GET', url, false);
+            xmlRequest.send();
+            document.write(xmlRequest.readyState + "<br>");
+            document.write(xmlRequest.status + "<br>");
+            document.write(xmlRequest.responseText  + "<br>")
+            jsonData = JSON.parse(xmlRequest.responseText);
+            stations = jsonData.metadata.stations;
+            document.write("Array length is: " + stations.length + "<br>");
+ 
+            for (let i = 0; i < stations.length; i++)
+                document.write(stations[i].id + " " + stations[i].name + "<br>");
+            document.write("<br/>");
+ 
+            readings = jsonData.items[0].readings;
+            for (let i = 0; i < readings.length; i++)
+            {
+                oneStat = readings[i]
+                document.write(oneStat.station_id + " " + oneStat.value + "<br/>"); 
+            }
+            document.write("<br/>");
+ 
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello XMLHttpRequest</h1>
+    <script>
+        getAirTempData()
+    </script>
+</body>
+</html>
