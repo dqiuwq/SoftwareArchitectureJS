@@ -6,14 +6,37 @@
     <title>HTML DOM JS</title>
     <script>
       function doSomething() {
-        document.write("Doing something");
+        //document.write("Doing something");
+        // Use DOM to access HTML tag
+        var mesgTag = document.getElementById("mesg");
+        var mesg = mesgTag.value;
+        alert("You enter: " + mesg);
+        // Another way to access HTML tags and values
+        var mTag = document.getElementsByName("mesg"); // an object/array
+        var inputMesg = mTag[0].value;
+        //alert("You enter: " + inputMesg);
+      }
+      function copyText() {
+        var text = document.getElementById("mesg").value;
+        var dupTag = document.getElementById("duplicate");
+        dupTag.value = text;
+        alert("Copied!");
       }
     </script>
   </head>
   <body>
     <form>
-      Your message
-      <input type="text" id="message" name="message" onchange="doSomething()" />
+      Your mesg 
+      <input type="text" id="mesg" name="mesg" onchange="doSomething()" />
+      <br />
+      Duplicate the message<input
+        type="button"
+        id=""
+        value="Copy Text"
+        onclick="copyText()"
+      />
+      <br />
+      <input type="text" id="duplicate" name="duplicate" />
     </form>
   </body>
 </html>
