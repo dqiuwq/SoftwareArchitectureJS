@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP in Javascript</title>
+    <script>
+        var rect1 = { length: 30, width: 50 };
+        
+        var rect2 = { 
+                length: 10, 
+                width: 20,
+                area: function() {
+                    return this.length * this.width;
+                }
+            };
+
+        // Testing
+        document.write("rect1 length: " + rect1.length);
+        document.write(", width: " + rect1.width);
+        document.write("<br />");
+        
+        document.write("rect2 length: " + rect2.length);
+        document.write(", width: " + rect2.width);
+        document.write("<br />");
+
+        // Another function
+        function getPerimeter()
+        {
+            return (this.length + this.width) * 2;
+        }
+
+        // add a new function dynamically
+        // rect1.peri = getPerimeter(); // <== this is calling the function
+        rect1.peri = getPerimeter; // <== this is assigning the function to the variable
+        document.write("rect1 perimeter: " + rect1.peri()); // <== this is how you can call a function in the object
+        document.write(", area: " + rect1.area());
+        document.write("<br />");
+
+        rect2.irep = getPerimeter; 
+        document.write("rect2 perimeter: " + rect2.irep()); 
+        document.write(", area: " + rect2.area());
+        document.write("<br />");
+    </script>
+</head>
+<body>
+</body>
+</html>
