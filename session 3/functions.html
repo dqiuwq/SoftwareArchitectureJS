@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions as Object</title>
+    <script>
+        // This demo is similar to a class
+        function Square(side)
+        {
+            this.side = side;
+            this.area = function(){ return this.side * this.side; }
+        }
+
+        // Testing
+        var sq1 = new Square(10);
+        var sq2 = new Square(20);
+        document.write(sq1.area());
+        document.write("<br />");
+        document.write(sq2.area());
+        document.write("<br />");
+
+        // Adding more things to each instance
+        sq1.peri = function() {return this.side * 4};
+        document.write(sq1.peri());
+        document.write("<br />")
+        
+        // Prototype - allows js to resolve any references
+        Square.prototype.color = "black";
+
+        document.write(sq1.color);
+        document.write("<br />");
+        document.write(sq2.color);
+        document.write("<br />");
+
+        sq2.color = "green";
+
+        document.write(sq1.color);
+        document.write("<br />");
+        document.write(sq2.color);
+        document.write("<br />");
+
+        Square.prototype.color = "blue";
+
+        document.write(sq1.color);
+        document.write("<br />");
+        document.write(sq2.color);
+        document.write("<br />");
+    </script>
+</head>
+<body>
+</body>
+</html>
