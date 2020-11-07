@@ -1,0 +1,8 @@
+Oct 01, 2020 12:28:25 PM LoggingTest main
+SEVERE: File logger Error, help help
+Oct 01, 2020 12:28:25 PM LoggingTest main
+SEVERE: Payroll calculation
+java.lang.ArithmeticException: / by zero
+	at LoggingTest.main(LoggingTest.java:35)
+	at Main.main(Main.java:6)
+
