@@ -1,3 +1,5 @@
+package session6;
+
 import java.io.Serializable;
 public class Square implements Serializable
 {

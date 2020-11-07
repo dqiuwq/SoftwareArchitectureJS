@@ -1,4 +1,4 @@
-package sample;
+package session7;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -67,6 +67,8 @@ public class MyApp extends Application{
         // show the gui
         topView.show();
     }
+
+
 
     private void echo(ActionEvent evtInfo) {
         TextField tf = (TextField) evtInfo.getSource();

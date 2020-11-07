@@ -1,4 +1,6 @@
-public class Sample 
+package session6;
+
+public class Sample
 {
   private int[] data = new int[5];
   private Square sq;

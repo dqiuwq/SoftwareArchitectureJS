@@ -1,4 +1,4 @@
-package sample;
+package session7;
 import java.util.Random;
 
 public class RandomCipher
